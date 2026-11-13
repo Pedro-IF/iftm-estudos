@@ -127,6 +127,80 @@ function renderAlternatives(panel, question) {
     panel.appendChild(list);
 }
 
+
+function renderDrawingLayer(panel) {
+    const canvas = document.createElement("canvas");
+    canvas.className = "draw" + (drawMode ? " active" : "");
+    panel.appendChild(canvas);
+    fitDrawingCanvas(canvas);
+    redrawDrawing(canvas);
+    const pen = elem("button", "pendraw" + (drawMode ? " on" : ""), drawMode ? "\u2713" : "\u270f");
+    pen.title = drawMode ? "Sair do modo desenho" : "Desenhar na questão";
+    pen.addEventListener("click", function () {
+        if (selectionActive()) return;
+        drawMode = !drawMode;
+        render();
+    });
+    panel.appendChild(pen);
+    if (drawMode) {
+        const bar = elem("div", "drawbar");
+        DRAW_COLORS.forEach(function (color) {
+            const sw = elem("button", "swatch" + (color === drawColor ? " on" : ""));
+            sw.style.background = color;
+            sw.addEventListener("click", function () { drawColor = color; render(); });
+            bar.appendChild(sw);
+        });
+        const eraser = elem("button", "swatch erase" + (drawColor === "erase" ? " on" : ""), "Borracha");
+        eraser.addEventListener("click", function () { drawColor = "erase"; render(); });
+        bar.appendChild(eraser);
+        const clear = elem("button", "drawtool", "Limpar");
+        clear.addEventListener("click", function () {
+            if (!state.drawings) return;
+            delete state.drawings[currentQuestion().id];
+            saveState();
+            render();
+        });
+        bar.appendChild(clear);
+        panel.appendChild(bar);
+
+        let stroke = null;
+        const point = function (e) {
+            const r = canvas.getBoundingClientRect();
+            return [(e.clientX - r.left) / r.width, (e.clientY - r.top) / r.height];
+        };
+        canvas.addEventListener("pointerdown", function (e) {
+            stroke = { c: drawColor, p: [point(e)] };
+            canvas.setPointerCapture(e.pointerId);
+        });
+        canvas.addEventListener("pointermove", function (e) {
+            if (!stroke) return;
+            const events = e.getCoalescedEvents ? e.getCoalescedEvents() : [e];
+            if (!events.length) events.push(e);
+            events.forEach(function (ev) { stroke.p.push(point(ev)); });
+            const ctx = canvas.getContext("2d");
+            ctx.lineCap = "round";
+            ctx.lineJoin = "round";
+            strokeStyle(ctx, stroke);
+            ctx.beginPath();
+            const n = stroke.p.length, from = Math.max(0, n - events.length - 1);
+            for (let i = from; i < n; i += 1) {
+                const x = stroke.p[i][0] * canvas.width, y = stroke.p[i][1] * canvas.height;
+                if (i === from) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+        });
+        const finish = function () {
+            if (!stroke) return;
+            questionStrokes().push(stroke);
+            stroke = null;
+            saveState();
+            redrawDrawing(canvas);
+        };
+        canvas.addEventListener("pointerup", finish);
+        canvas.addEventListener("pointerleave", finish);
+    }
+}
+
 function renderFeedback(panel, question) {
     const chosen = state.answers[question.id];
     if (!chosen) return;
@@ -166,6 +240,59 @@ function renderImage(panel, question) {
     panel.appendChild(figure);
 }
 
+window.addEventListener("resize", function () {
+    const canvas = document.querySelector(".panel canvas.draw");
+    if (canvas) { fitDrawingCanvas(canvas); redrawDrawing(canvas); }
+});
+
+const DRAW_COLORS = ["#1d2432", "#d33a2f", "#2a6bd8"];
+let drawMode = false;
+let drawColor = DRAW_COLORS[0];
+
+function questionStrokes() {
+    if (!state.drawings) state.drawings = {};
+    const q = currentQuestion();
+    return state.drawings[q.id] || (state.drawings[q.id] = []);
+}
+
+function strokeStyle(ctx, stroke) {
+    if (stroke.c === "erase") {
+        ctx.globalCompositeOperation = "destination-out";
+        ctx.strokeStyle = "rgba(0,0,0,1)";
+        ctx.lineWidth = 22;
+    } else {
+        ctx.globalCompositeOperation = "source-over";
+        ctx.strokeStyle = stroke.c;
+        ctx.lineWidth = 3.5;
+    }
+}
+
+function redrawDrawing(canvas, live) {
+    const ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    questionStrokes().concat(live ? [live] : []).forEach(function (stroke) {
+        strokeStyle(ctx, stroke);
+        ctx.beginPath();
+        stroke.p.forEach(function (pt, i) {
+            const x = pt[0] * canvas.width, y = pt[1] * canvas.height;
+            if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+        });
+        if (stroke.p.length === 1) {
+            const x = stroke.p[0][0] * canvas.width, y = stroke.p[0][1] * canvas.height;
+            ctx.lineTo(x + 0.1, y + 0.1);
+        }
+        ctx.stroke();
+    });
+}
+
+function fitDrawingCanvas(canvas) {
+    const rect = canvas.parentElement.getBoundingClientRect();
+    canvas.width = Math.max(1, Math.round(rect.width));
+    canvas.height = Math.max(1, Math.round(rect.height));
+}
+
 function renderPanel() {
     const panel = document.getElementById("panel");
     const topic = currentTopic();
@@ -199,8 +326,7 @@ function renderPanel() {
     });
     mid.appendChild(nextB);
     meta.appendChild(mid);
-    const score = topicScore(topic);
-    meta.appendChild(elem("span", "pos", "Acertos: " + score.right + "/" + score.done));
+    meta.appendChild(elem("span", "rright", "Acertos: " + topicScore(topic).right + "/" + topicScore(topic).done));
     panel.appendChild(meta);
 
     if (question.tex_statement) {
@@ -211,6 +337,7 @@ function renderPanel() {
     renderImage(panel, question);  // the precise crop of the question from the exam
     renderAlternatives(panel, question);
     renderFeedback(panel, question);
+    renderDrawingLayer(panel);
 }
 
 function answer(letter) {

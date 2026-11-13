@@ -232,7 +232,45 @@ figcaption { color: var(--muted); font-size: 12.5px; margin-top: 6px; }
 .meta .navbtn:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
 .meta .navbtn:disabled { opacity: .4; cursor: default; }
 .meta .mid a { margin: 0 10px; }
-.meta .pos { text-align: right; color: var(--muted); font-size: 13.5px; }
+.meta .pos { color: var(--muted); font-size: 13.5px; }
+.meta .rright { text-align: right; }
+.meta .rright { margin-right: 50px; }
+.pendraw {
+    position: absolute; top: 17px; right: 20px; z-index: 7;
+    width: auto; height: auto; border-radius: 6px; padding: 3px 11px; font-size: 14px; line-height: 1;
+    background: #fff; border: 1px solid var(--line); cursor: pointer;
+    font-size: 16px; line-height: 1; color: var(--ink); user-select: none;
+}
+.pendraw:hover { border-color: var(--accent); }
+.pendraw.on { border-color: var(--accent); color: var(--accent); }
+
+.panel { position: relative; }
+canvas.draw {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    pointer-events: none; touch-action: none; z-index: 5;
+}
+canvas.draw.active { pointer-events: auto; cursor: crosshair; }
+.drawbar {
+    position: absolute; top: 8px; left: 0; right: 0; margin: 0 auto; width: max-content;
+    display: flex; align-items: center; gap: 6px; z-index: 6;
+    background: #fff; border: 1px solid var(--line); border-radius: 8px;
+    padding: 6px 8px; box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+.drawbar .swatch {
+    width: 22px; height: 22px; border-radius: 50%;
+    border: 2px solid #fff; outline: 1px solid var(--line);
+    cursor: pointer; padding: 0; font: inherit;
+}
+.drawbar .swatch.on { outline: 2px solid var(--accent); }
+.drawbar .erase {
+    width: auto; border-radius: 6px; background: #fff;
+    padding: 2px 8px; font-size: 12.5px; color: var(--muted);
+}
+.drawbar .drawtool {
+    font: inherit; font-size: 12.5px; color: var(--muted);
+    background: none; border: none; cursor: pointer; padding: 2px 6px;
+}
+.drawbar .drawtool:hover { color: var(--bad); }
 .meta .mid a { margin-left: 10px; }
 
 /* alternative crossed out with the right mouse button */
@@ -273,7 +311,7 @@ figcaption { color: var(--muted); font-size: 12.5px; margin-top: 6px; }
 .tex-unknown { color: var(--bad); font-size: .9em; }
 .tex-figure { display: inline-block; padding: 0 6px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font-size: 12px; }
 .tex-matrix { white-space: nowrap; }
-.tex-tabular { display: inline-table; vertical-align: middle; margin: 6px 4px; border-collapse: collapse; }
+.tex-tabular { display: table; margin: 10px auto; border-collapse: collapse; }
 .tex-tabular td { border: 1px solid var(--line); padding: 3px 10px; }
 .tex-list { margin: 4px 0 4px 4px; padding-left: 22px; }
 .tex-list li { margin: 3px 0; }
