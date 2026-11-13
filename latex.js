@@ -243,7 +243,7 @@
     }
 
     function appendPlain(fragment, text) {
-        var lines = String(text).split("\n");
+        var lines = String(text).replace(/\\([%$&#_{}])/g, "$1").split("\n");
         lines.forEach(function (line, lineIndex) {
             if (lineIndex > 0) fragment.appendChild(document.createElement("br"));
             var pieces = line.split(/(\[figura\]|\[tabela\])/i);
@@ -360,13 +360,24 @@
                 var before = String(text).slice(0, listMatch.index);
                 var body = String(text).slice(listMatch.index + ("\\begin{" + env + "}").length, end);
                 var after = String(text).slice(end + ("\\end{" + env + "}").length);
-                if (before.trim()) fragment.appendChild(renderLatex(before));
+                if (before.trim()) fragment.appendChild(renderLatex(before.replace(/\n+$/, "")));
                 renderList(env, body, fragment);
-                if (after.trim()) fragment.appendChild(renderLatex(after));
+                if (after.trim()) fragment.appendChild(renderLatex(after.replace(/^\n+/, "")));
                 return fragment;
             }
         }
-        splitMath(String(text)).forEach(function (part, idx, parts) {
+        var parts = splitMath(String(text));
+        parts.forEach(function (part, idx) {
+            if (!part.math) return;
+            var isBlock = part.display ||
+                /^\s*\\begin\{(tabular|array|pmatrix|bmatrix|matrix)\}/.test(part.text);
+            if (!isBlock) return;
+            var prev = parts[idx - 1];
+            if (prev && !prev.math) prev.text = prev.text.replace(/\n+$/, "");
+            var next = parts[idx + 1];
+            if (next && !next.math) next.text = next.text.replace(/^\n+/, "");
+        });
+        parts.forEach(function (part, idx, parts) {
             if (part.math) {
                 var table = /^\s*\\begin\{(tabular|array)\}/.exec(part.text);
                 var matrix = /^\s*\\begin\{(pmatrix|bmatrix|matrix)\}/.exec(part.text);
