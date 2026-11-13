@@ -187,17 +187,7 @@ function renderNav(panel, question) {
     });
     nav.appendChild(prev);
     nav.appendChild(next);
-    nav.appendChild(elem("span", "pos", "Questão " + (state.index + 1) + " de " + questions.length));
-    if (!state.answers[question.id]) {
-        const reveal = elem("button", "reveal", "Ver resposta");
-        reveal.addEventListener("click", function () {
-            if (selectionActive()) return;
-            state.answers[question.id] = "?";
-            saveState();
-            render();
-        });
-        nav.appendChild(reveal);
-    }
+    nav.appendChild(elem("span", "pos", "Questão " + (state.index + 1) + "/" + questions.length));
 
     panel.appendChild(nav);
 }
@@ -211,15 +201,14 @@ function renderPanel() {
     const meta = elem("div", "meta");
     meta.appendChild(elem("strong", "", topic.label));
     const mid = elem("span", "mid");
-    const score = topicScore(topic);
-    mid.appendChild(elem("span", "score", "acertos: " + score.right + "/" + score.done));
     const link = document.createElement("a");
     link.href = "../pdfs/enem_" + question.year + "_d2.pdf#page=" + question.page;
-    link.textContent = "abrir a prova";
+    link.textContent = "Abrir a prova";
     link.target = "_blank";
     mid.appendChild(link);
     meta.appendChild(mid);
-    meta.appendChild(elem("span"));
+    const score = topicScore(topic);
+    meta.appendChild(elem("span", "pos", "Acertos: " + score.right + "/" + score.done));
     panel.appendChild(meta);
 
     if (question.tex_statement) {

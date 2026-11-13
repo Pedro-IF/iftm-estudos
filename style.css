@@ -223,6 +223,7 @@ figcaption { color: var(--muted); font-size: 12.5px; margin-top: 6px; }
 
 .meta { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; }
 .meta .mid { text-align: center; }
+.meta .pos { text-align: right; color: var(--muted); font-size: 13.5px; }
 .meta .mid a { margin-left: 10px; }
 
 /* alternative crossed out with the right mouse button */
@@ -282,12 +283,7 @@ figcaption { color: var(--muted); font-size: 12.5px; margin-top: 6px; }
 }
 .nav button:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
 .nav button:disabled { opacity: .45; cursor: default; }
-.nav .pos { color: var(--muted); font-size: 13.5px; }
-.nav .reveal {
-    border: none; background: none; text-decoration: underline;
-    text-underline-offset: 3px; color: var(--muted); padding: 4px 6px;
-}
-.nav .reveal:hover { color: var(--accent); }
+.nav .pos { color: var(--muted); font-size: 13.5px; margin-left: auto; }
 
 @media (max-width: 820px) {
     .layout { grid-template-columns: 1fr; }
