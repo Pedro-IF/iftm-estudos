@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Estudo ENEM — 2º dia</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1>Estudo ENEM — 2º dia</h1>
+    <p>Todas as questões do 2º dia do ENEM (2021–2025), com a foto da prova e o gabarito oficial.</p>
+    <p class="hint">Clique com o botão direito em uma alternativa para riscá-la (para eliminar opções).</p>
+    <p class="total" id="total"></p>
+</header>
+<div class="layout">
+    <aside class="side">
+        <div class="calc">
+            <input id="calc-display" class="display" type="text" autocomplete="off" spellcheck="false" placeholder="0" aria-label="Calculadora">
+            <div class="keys" id="calc-keys"></div>
+                    </div>
+        <nav class="topics" id="topics"></nav>
+    </aside>
+    <main class="panel" id="panel"></main>
+</div>
+<script src="data/bank.js"></script>
+<script src="latex.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
