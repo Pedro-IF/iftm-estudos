@@ -223,6 +223,15 @@ figcaption { color: var(--muted); font-size: 12.5px; margin-top: 6px; }
 
 .meta { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; }
 .meta .mid { text-align: center; }
+.meta .navbtn {
+    font: inherit; font-size: 14px; line-height: 1;
+    background: #fff; border: 1px solid var(--line); border-radius: 6px;
+    padding: 3px 11px; cursor: pointer; color: var(--ink);
+    vertical-align: middle; user-select: none;
+}
+.meta .navbtn:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+.meta .navbtn:disabled { opacity: .4; cursor: default; }
+.meta .mid a { margin: 0 10px; }
 .meta .pos { text-align: right; color: var(--muted); font-size: 13.5px; }
 .meta .mid a { margin-left: 10px; }
 

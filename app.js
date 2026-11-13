@@ -166,32 +166,6 @@ function renderImage(panel, question) {
     panel.appendChild(figure);
 }
 
-function renderNav(panel, question) {
-    const questions = currentTopic().questions;
-    const nav = elem("div", "nav");
-    const prev = elem("button", "", "← Anterior");
-    prev.disabled = state.index === 0;
-    prev.addEventListener("click", function () {
-        if (selectionActive()) return;
-        state.index -= 1;
-        saveState();
-        render();
-    });
-    const next = elem("button", "", "Próxima →");
-    next.disabled = state.index === questions.length - 1;
-    next.addEventListener("click", function () {
-        if (selectionActive()) return;
-        state.index += 1;
-        saveState();
-        render();
-    });
-    nav.appendChild(prev);
-    nav.appendChild(next);
-    nav.appendChild(elem("span", "pos", "Questão " + (state.index + 1) + "/" + questions.length));
-
-    panel.appendChild(nav);
-}
-
 function renderPanel() {
     const panel = document.getElementById("panel");
     const topic = currentTopic();
@@ -201,11 +175,29 @@ function renderPanel() {
     const meta = elem("div", "meta");
     meta.appendChild(elem("strong", "", topic.label));
     const mid = elem("span", "mid");
+    const prevB = elem("button", "navbtn", "<");
+    prevB.disabled = state.index === 0;
+    prevB.addEventListener("click", function () {
+        if (selectionActive()) return;
+        state.index -= 1;
+        saveState();
+        render();
+    });
+    mid.appendChild(prevB);
     const link = document.createElement("a");
     link.href = "../pdfs/enem_" + question.year + "_d2.pdf#page=" + question.page;
-    link.textContent = "Abrir a prova";
+    link.textContent = "Questão " + (state.index + 1) + "/" + topic.questions.length;
     link.target = "_blank";
     mid.appendChild(link);
+    const nextB = elem("button", "navbtn", ">");
+    nextB.disabled = state.index === topic.questions.length - 1;
+    nextB.addEventListener("click", function () {
+        if (selectionActive()) return;
+        state.index += 1;
+        saveState();
+        render();
+    });
+    mid.appendChild(nextB);
     meta.appendChild(mid);
     const score = topicScore(topic);
     meta.appendChild(elem("span", "pos", "Acertos: " + score.right + "/" + score.done));
@@ -219,7 +211,6 @@ function renderPanel() {
     renderImage(panel, question);  // the precise crop of the question from the exam
     renderAlternatives(panel, question);
     renderFeedback(panel, question);
-    renderNav(panel, question);
 }
 
 function answer(letter) {
