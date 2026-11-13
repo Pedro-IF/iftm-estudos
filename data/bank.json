@@ -1,7 +1,7 @@
 {
   "topics": [
     {
-      "label": "matemática financeira",
+      "label": "Matemática financeira",
       "discipline": "Matemática",
       "area": "Matemática",
       "questions": [
@@ -159,7 +159,7 @@
       ]
     },
     {
-      "label": "matemática analítica",
+      "label": "Matemática analítica",
       "discipline": "Matemática",
       "area": "Matemática",
       "questions": [
@@ -286,7 +286,7 @@
       ]
     },
     {
-      "label": "aritmética e proporcionalidade",
+      "label": "Aritmética e proporcionalidade",
       "discipline": "Matemática",
       "area": "Matemática",
       "questions": [
@@ -2125,7 +2125,7 @@
       ]
     },
     {
-      "label": "funções",
+      "label": "Funções",
       "discipline": "Matemática",
       "area": "Matemática",
       "questions": [
@@ -2928,7 +2928,7 @@
       ]
     },
     {
-      "label": "progressões",
+      "label": "Progressões",
       "discipline": "Matemática",
       "area": "Matemática",
       "questions": [
@@ -3116,7 +3116,7 @@
       ]
     },
     {
-      "label": "análise combinatória",
+      "label": "Análise combinatória",
       "discipline": "Matemática",
       "area": "Matemática",
       "questions": [
@@ -3363,7 +3363,7 @@
       ]
     },
     {
-      "label": "probabilidade",
+      "label": "Probabilidade",
       "discipline": "Matemática",
       "area": "Matemática",
       "questions": [
@@ -3700,7 +3700,7 @@
       ]
     },
     {
-      "label": "estatística",
+      "label": "Estatística",
       "discipline": "Matemática",
       "area": "Matemática",
       "questions": [
@@ -4698,7 +4698,7 @@
       ]
     },
     {
-      "label": "geometria plana",
+      "label": "Geometria plana",
       "discipline": "Matemática",
       "area": "Matemática",
       "questions": [
@@ -5249,7 +5249,7 @@
       ]
     },
     {
-      "label": "geometria espacial",
+      "label": "Geometria espacial",
       "discipline": "Matemática",
       "area": "Matemática",
       "questions": [
@@ -6013,7 +6013,7 @@
       ]
     },
     {
-      "label": "trigonometria",
+      "label": "Trigonometria",
       "discipline": "Matemática",
       "area": "Matemática",
       "questions": [
@@ -6197,7 +6197,7 @@
       ]
     },
     {
-      "label": "equações e polinômios",
+      "label": "Equações e polinômios",
       "discipline": "Matemática",
       "area": "Matemática",
       "questions": [
@@ -6474,7 +6474,7 @@
       ]
     },
     {
-      "label": "matrizes e determinantes",
+      "label": "Matrizes e determinantes",
       "discipline": "Matemática",
       "area": "Matemática",
       "questions": [
@@ -6511,7 +6511,7 @@
       ]
     },
     {
-      "label": "conjuntos e lógica",
+      "label": "Conjuntos e lógica",
       "discipline": "Matemática",
       "area": "Matemática",
       "questions": [
@@ -6728,7 +6728,7 @@
       ]
     },
     {
-      "label": "biologia celular",
+      "label": "Biologia celular",
       "discipline": "Biologia",
       "area": "Ciências da Natureza",
       "questions": [
@@ -6831,7 +6831,7 @@
       ]
     },
     {
-      "label": "genética",
+      "label": "Genética",
       "discipline": "Biologia",
       "area": "Ciências da Natureza",
       "questions": [
@@ -6994,7 +6994,7 @@
       ]
     },
     {
-      "label": "evolução",
+      "label": "Evolução",
       "discipline": "Biologia",
       "area": "Ciências da Natureza",
       "questions": [
@@ -7146,7 +7146,7 @@
       ]
     },
     {
-      "label": "ecologia",
+      "label": "Ecologia",
       "discipline": "Biologia",
       "area": "Ciências da Natureza",
       "questions": [
@@ -7563,7 +7563,7 @@
       ]
     },
     {
-      "label": "fisiologia humana e saúde",
+      "label": "Fisiologia humana e saúde",
       "discipline": "Biologia",
       "area": "Ciências da Natureza",
       "questions": [
@@ -7834,7 +7834,7 @@
       ]
     },
     {
-      "label": "botânica",
+      "label": "Botânica",
       "discipline": "Biologia",
       "area": "Ciências da Natureza",
       "questions": [
@@ -7985,7 +7985,7 @@
       ]
     },
     {
-      "label": "zoologia",
+      "label": "Zoologia",
       "discipline": "Biologia",
       "area": "Ciências da Natureza",
       "questions": [
@@ -8160,7 +8160,7 @@
       ]
     },
     {
-      "label": "microbiologia e imunologia",
+      "label": "Microbiologia e imunologia",
       "discipline": "Biologia",
       "area": "Ciências da Natureza",
       "questions": [
@@ -8407,7 +8407,7 @@
       ]
     },
     {
-      "label": "biotecnologia",
+      "label": "Biotecnologia",
       "discipline": "Biologia",
       "area": "Ciências da Natureza",
       "questions": [
@@ -8558,7 +8558,7 @@
       ]
     },
     {
-      "label": "bioquímica e metabolismo",
+      "label": "Bioquímica e metabolismo",
       "discipline": "Biologia",
       "area": "Ciências da Natureza",
       "questions": [
@@ -8733,7 +8733,7 @@
       ]
     },
     {
-      "label": "mecânica",
+      "label": "Mecânica",
       "discipline": "Física",
       "area": "Ciências da Natureza",
       "questions": [
@@ -9259,7 +9259,7 @@
       ]
     },
     {
-      "label": "termologia e termodinâmica",
+      "label": "Termologia e termodinâmica",
       "discipline": "Física",
       "area": "Ciências da Natureza",
       "questions": [
@@ -9580,7 +9580,7 @@
       ]
     },
     {
-      "label": "ondulatória e acústica",
+      "label": "Ondulatória e acústica",
       "discipline": "Física",
       "area": "Ciências da Natureza",
       "questions": [
@@ -9829,7 +9829,7 @@
       ]
     },
     {
-      "label": "óptica",
+      "label": "Óptica",
       "discipline": "Física",
       "area": "Ciências da Natureza",
       "questions": [
@@ -10016,7 +10016,7 @@
       ]
     },
     {
-      "label": "eletricidade e eletromagnetismo",
+      "label": "Eletricidade e eletromagnetismo",
       "discipline": "Física",
       "area": "Ciências da Natureza",
       "questions": [
@@ -10593,7 +10593,7 @@
       ]
     },
     {
-      "label": "hidrostática e fluidos",
+      "label": "Hidrostática e fluidos",
       "discipline": "Física",
       "area": "Ciências da Natureza",
       "questions": [
@@ -10624,7 +10624,7 @@
       ]
     },
     {
-      "label": "física moderna e radiações",
+      "label": "Física moderna e radiações",
       "discipline": "Física",
       "area": "Ciências da Natureza",
       "questions": [
@@ -10703,7 +10703,7 @@
       ]
     },
     {
-      "label": "química geral e estequiometria",
+      "label": "Química geral e estequiometria",
       "discipline": "Química",
       "area": "Ciências da Natureza",
       "questions": [
@@ -11070,7 +11070,7 @@
       ]
     },
     {
-      "label": "físico-química",
+      "label": "Físico-química",
       "discipline": "Química",
       "area": "Ciências da Natureza",
       "questions": [
@@ -11516,7 +11516,7 @@
       ]
     },
     {
-      "label": "química orgânica",
+      "label": "Química orgânica",
       "discipline": "Química",
       "area": "Ciências da Natureza",
       "questions": [
@@ -11909,7 +11909,7 @@
       ]
     },
     {
-      "label": "eletroquímica",
+      "label": "Eletroquímica",
       "discipline": "Química",
       "area": "Ciências da Natureza",
       "questions": [
@@ -12036,7 +12036,7 @@
       ]
     },
     {
-      "label": "radioatividade",
+      "label": "Radioatividade",
       "discipline": "Química",
       "area": "Ciências da Natureza",
       "questions": [
@@ -12139,7 +12139,7 @@
       ]
     },
     {
-      "label": "química ambiental e industrial",
+      "label": "Química ambiental e industrial",
       "discipline": "Química",
       "area": "Ciências da Natureza",
       "questions": [
