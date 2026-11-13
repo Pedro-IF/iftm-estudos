@@ -1181,7 +1181,7 @@
           "images": [
             "img/q_2023_141.jpg"
           ],
-          "tex_statement": "O calendário maia apresenta duas contagens simultâneas de anos, o chamado ano Tzolkim, composto por $260$ dias e que determinava o calendário religioso, e o ano Haab, composto por $365$ dias e que determinava o calendário agrícola. Um historiador encontrou evidências de que gerações de uma mesma família governaram certa comunidade maia pelo período de $20$ ciclos, sendo cada ciclo formado por $52$ anos Haab.\nDisponível em: www.suapesquisa.com. Acesso em: 20 ago. 2014.\nDe acordo com as informações fornecidas, durante quantos anos Tzolkim aquela comunidade maia foi governada por tal família?",
+          "tex_statement": "O calendário maia apresenta duas contagens simultâneas de anos, o chamado ano Tzolkim, composto por $260$ dias e que determinava o calendário religioso, e o ano Haab, composto por $365$ dias e que determinava o calendário agrícola. Um historiador encontrou evidências de que gerações de uma mesma família governaram certa comunidade maia pelo período de $20$ ciclos, sendo cada ciclo formado por $52$ anos Haab.\nDe acordo com as informações fornecidas, durante quantos anos Tzolkim aquela comunidade maia foi governada por tal família?",
           "tex_alternatives": {
             "A": "$741$",
             "B": "$1\\,040$",
@@ -1211,7 +1211,7 @@
           "images": [
             "img/q_2023_143.jpg"
           ],
-          "tex_statement": "Entre maratonistas, um parâmetro utilizado é o de economia de corrida (EC). O valor desse parâmetro é calculado pela razão entre o consumo de oxigênio, em mililitro (mL) por minuto (min), e a massa, em quilograma (kg), do atleta correndo a uma velocidade constante.\nDisponível em: www.treinamentoonline.com.br. Acesso em: 23 out. 2019 (adaptado).\nUm maratonista, visando melhorar sua performance, auxiliado por um médico, mensura o seu consumo de oxigênio por minuto a velocidade constante. Com base nesse consumo e na massa do atleta, o médico calcula o EC do atleta.\nA unidade de medida da grandeza descrita pelo parâmetro EC é",
+          "tex_statement": "Entre maratonistas, um parâmetro utilizado é o de economia de corrida (EC). O valor desse parâmetro é calculado pela razão entre o consumo de oxigênio, em mililitro (mL) por minuto (min), e a massa, em quilograma (kg), do atleta correndo a uma velocidade constante.\nUm maratonista, visando melhorar sua performance, auxiliado por um médico, mensura o seu consumo de oxigênio por minuto a velocidade constante. Com base nesse consumo e na massa do atleta, o médico calcula o EC do atleta.\nA unidade de medida da grandeza descrita pelo parâmetro EC é",
           "tex_alternatives": {
             "A": "$\\frac{\\text{min}}{\\text{mL} \\cdot \\text{kg}}$",
             "B": "$\\frac{\\text{mL}}{\\text{min} \\cdot \\text{kg}}$",
@@ -1361,7 +1361,7 @@
           "images": [
             "img/q_2024_142.jpg"
           ],
-          "tex_statement": "Atualmente, há telefones celulares com telas de diversos tamanhos e em formatos retangulares. Alguns deles apresentam telas medindo $3\\frac{1}{2}$ polegadas, com determinadas especificações técnicas. Além disso, em muitos modelos, com a inclusão de novas funções no celular, suas telas ficaram maiores, sendo muito comum encontrarmos atualmente telas medindo $4\\frac{5}{6}$ polegadas, conforme a figura.\n[figura]\nDisponível em: www.tecmundo.com.br. Acesso em: 5 nov. 2014 (adaptado).\nA diferença de tamanho, em valor absoluto, entre as medidas, em polegada, das telas do celular $2$ e do celular $1$, representada apenas com uma casa decimal, é",
+          "tex_statement": "Atualmente, há telefones celulares com telas de diversos tamanhos e em formatos retangulares. Alguns deles apresentam telas medindo $3\\frac{1}{2}$ polegadas, com determinadas especificações técnicas. Além disso, em muitos modelos, com a inclusão de novas funções no celular, suas telas ficaram maiores, sendo muito comum encontrarmos atualmente telas medindo $4\\frac{5}{6}$ polegadas, conforme a figura.\n[figura]\nA diferença de tamanho, em valor absoluto, entre as medidas, em polegada, das telas do celular $2$ e do celular $1$, representada apenas com uma casa decimal, é",
           "tex_alternatives": {
             "A": "$0,1$",
             "B": "$0,5$",
@@ -2289,7 +2289,7 @@
           "images": [
             "img/q_2022_172.jpg"
           ],
-          "tex_statement": "A luminosidade $L$ de uma estrela está relacionada com o raio $R$ e com a temperatura $T$ dessa estrela segundo a Lei de Stefan-Boltzmann: $L = c \\cdot R^2 \\cdot T^4$, em que $c$ é uma constante igual para todas as estrelas.\nDisponível em: http://ciencia.hsw.uol.com.br. Acesso em: 22 nov. 2013 (adaptado).\nConsidere duas estrelas $E$ e $F$, sendo que a estrela $E$ tem metade do raio da estrela $F$ e o dobro da temperatura de $F$.\nIndique por $L_E$ e $L_F$ suas respectivas luminosidades.\nA relação entre as luminosidades dessas duas estrelas é dada por",
+          "tex_statement": "A luminosidade $L$ de uma estrela está relacionada com o raio $R$ e com a temperatura $T$ dessa estrela segundo a Lei de Stefan-Boltzmann: $L = c \\cdot R^2 \\cdot T^4$, em que $c$ é uma constante igual para todas as estrelas.\nConsidere duas estrelas $E$ e $F$, sendo que a estrela $E$ tem metade do raio da estrela $F$ e o dobro da temperatura de $F$.\nIndique por $L_E$ e $L_F$ suas respectivas luminosidades.\nA relação entre as luminosidades dessas duas estrelas é dada por",
           "tex_alternatives": {
             "A": "$L_E = \\frac{L_F}{2}$",
             "B": "$L_E = \\frac{L_F}{4}$",
@@ -2499,7 +2499,7 @@
           "images": [
             "img/q_2023_161.jpg"
           ],
-          "tex_statement": "Dirigir após ingerir bebidas alcoólicas é uma atitude extremamente perigosa, uma vez que, a partir da primeira dose, a pessoa já começa a ter perda de sensibilidade de movimentos e de reflexos. Apesar de a eliminação e absorção do álcool depender de cada pessoa e de como o organismo consegue metabolizar a substância, ao final da primeira hora após a ingestão, a concentração de álcool ($C$) no sangue corresponde a aproximadamente 90% da quantidade ($q$) de álcool ingerida, e a eliminação total dessa concentração pode demorar até 12 horas.\nDisponível em: http://g1.globo.com. Acesso em: 1 dez. 2018 (adaptado).\nNessas condições, ao final da primeira hora após a ingestão da quantidade $q$ de álcool, a concentração $C$ dessa substância no sangue é expressa algebricamente por",
+          "tex_statement": "Dirigir após ingerir bebidas alcoólicas é uma atitude extremamente perigosa, uma vez que, a partir da primeira dose, a pessoa já começa a ter perda de sensibilidade de movimentos e de reflexos. Apesar de a eliminação e absorção do álcool depender de cada pessoa e de como o organismo consegue metabolizar a substância, ao final da primeira hora após a ingestão, a concentração de álcool ($C$) no sangue corresponde a aproximadamente 90% da quantidade ($q$) de álcool ingerida, e a eliminação total dessa concentração pode demorar até 12 horas.\nNessas condições, ao final da primeira hora após a ingestão da quantidade $q$ de álcool, a concentração $C$ dessa substância no sangue é expressa algebricamente por",
           "tex_alternatives": {
             "A": "$C = 0,9q$",
             "B": "$C = 0,1q$",
@@ -2529,7 +2529,7 @@
           "images": [
             "img/q_2023_163.jpg"
           ],
-          "tex_statement": "A exposição a alguns níveis sonoros pode causar lesões auditivas. Por isso, em uma indústria, são adotadas medidas preventivas de acordo com a máquina que o funcionário opera e o nível $N$ de intensidade do som, medido em decibel (dB), a que o operário é exposto, sendo $N = \\log_{10} I^{10} - \\log_{10} I_0^{10}$, $I$ a intensidade do som e $I_0 = 10^{-12}\\ \\text{W/m}^2$.\nDisponível em: www.sofisica.com.br. Acesso em: 8 jul. 2015 (adaptado).\nQuando o som é considerado baixo, ou seja, $N = 48$ dB ou menos, deve ser utilizada a medida preventiva I. No caso de o som ser moderado, quando $N$ está no intervalo (48 dB, 55 dB), deve ser utilizada a medida preventiva II. Quando o som é moderado alto, que equivale a $N$ no intervalo (55 dB, 80 dB), a medida preventiva a ser usada é a III. Se $N$ estiver no intervalo (80 dB, 115 dB), quando o som é considerado alto, deve ser utilizada a medida preventiva IV. E se o som é considerado muito alto, com $N$ maior que 115 dB, deve-se utilizar a medida preventiva V.\nUma nova máquina, com $I = 8 \\times 10^{-8}\\ \\text{W/m}^2$, foi adquirida e será classificada de acordo com o nível de ruído que produz.\nConsidere 0,3 como aproximação para $\\log_{10} 2$.\nO funcionário que operará a nova máquina deverá adotar a medida preventiva",
+          "tex_statement": "A exposição a alguns níveis sonoros pode causar lesões auditivas. Por isso, em uma indústria, são adotadas medidas preventivas de acordo com a máquina que o funcionário opera e o nível $N$ de intensidade do som, medido em decibel (dB), a que o operário é exposto, sendo $N = \\log_{10} I^{10} - \\log_{10} I_0^{10}$, $I$ a intensidade do som e $I_0 = 10^{-12}\\ \\text{W/m}^2$.\nQuando o som é considerado baixo, ou seja, $N = 48$ dB ou menos, deve ser utilizada a medida preventiva I. No caso de o som ser moderado, quando $N$ está no intervalo (48 dB, 55 dB), deve ser utilizada a medida preventiva II. Quando o som é moderado alto, que equivale a $N$ no intervalo (55 dB, 80 dB), a medida preventiva a ser usada é a III. Se $N$ estiver no intervalo (80 dB, 115 dB), quando o som é considerado alto, deve ser utilizada a medida preventiva IV. E se o som é considerado muito alto, com $N$ maior que 115 dB, deve-se utilizar a medida preventiva V.\nUma nova máquina, com $I = 8 \\times 10^{-8}\\ \\text{W/m}^2$, foi adquirida e será classificada de acordo com o nível de ruído que produz.\nConsidere 0,3 como aproximação para $\\log_{10} 2$.\nO funcionário que operará a nova máquina deverá adotar a medida preventiva",
           "tex_alternatives": {
             "A": "I.",
             "B": "II.",
@@ -2854,7 +2854,7 @@
           "images": [
             "img/q_2025_142.jpg"
           ],
-          "tex_statement": "Pesquisas na área de neurobiologia confirmam que a prática meditativa é responsável por diminuir consideravelmente a frequência respiratória para praticantes avançados, que, após iniciarem a meditação, têm suas frequências respiratórias reduzidas até se estabilizarem em um nível mais baixo. O gráfico apresenta a relação da frequência respiratória, em incursões de respirações por minuto (rpm), em relação ao tempo, em minuto, de um praticante avançado, em que $(f_1)$ representa a frequência no instante $t_1$, no qual se inicia a prática meditativa; e $(f_2)$, a frequência no instante $t_2$, a partir do qual esta se estabiliza durante a meditação.\n[figura]\nDisponível em: www.redepsi.com.br. Acesso em: 3 dez. 2018 (adaptado).\nA partir do instante $t_1$, em que se inicia a prática meditativa, o comportamento da frequência respiratória, em relação ao tempo,",
+          "tex_statement": "Pesquisas na área de neurobiologia confirmam que a prática meditativa é responsável por diminuir consideravelmente a frequência respiratória para praticantes avançados, que, após iniciarem a meditação, têm suas frequências respiratórias reduzidas até se estabilizarem em um nível mais baixo. O gráfico apresenta a relação da frequência respiratória, em incursões de respirações por minuto (rpm), em relação ao tempo, em minuto, de um praticante avançado, em que $(f_1)$ representa a frequência no instante $t_1$, no qual se inicia a prática meditativa; e $(f_2)$, a frequência no instante $t_2$, a partir do qual esta se estabiliza durante a meditação.\n[figura]\nA partir do instante $t_1$, em que se inicia a prática meditativa, o comportamento da frequência respiratória, em relação ao tempo,",
           "tex_alternatives": {
             "A": "mantém-se constante.",
             "B": "é diretamente proporcional ao tempo.",
@@ -3723,7 +3723,7 @@
           "images": [
             "img/q_2021_164.jpg"
           ],
-          "tex_statement": "A demografia médica é o estudo da população de médicos no Brasil nos aspectos quantitativo e qualitativo, sendo um dos seus objetivos fazer projeções sobre a necessidade da formação de novos médicos. Um desses estudos gerou um conjunto de dados que aborda a evolução do número de médicos e da população brasileira por várias décadas. O quadro apresenta parte desses dados.\n$\\begin{tabular}{|c|c|c|}\n\\hline\n\\textbf{Ano} & \\textbf{Médicos} & \\textbf{População brasileira (em milhar)} \\\\ \\hline\n1990 & 219\\ 000 & 147\\ 000 \\\\ \\hline\n2000 & 292\\ 000 & 170\\ 000 \\\\ \\hline\n2010 & 365\\ 000 & 191\\ 000 \\\\ \\hline\n\\end{tabular}$\nSegundo uma projeção estatística, a variação do número de médicos e o da população brasileira de 2010 para 2020 será a média entre a variação de 1990 para 2000 e a de 2000 para 2010. Com o resultado dessa projeção, determina-se o número de médicos por mil habitantes no ano de 2020.\nDisponível em: www.cremesp.org.br. Acesso em: 24 jun. 2015 (adaptado).\nO número, com duas casas na parte decimal, mais próximo do número de médicos por mil habitantes no ano de 2020 seria de",
+          "tex_statement": "A demografia médica é o estudo da população de médicos no Brasil nos aspectos quantitativo e qualitativo, sendo um dos seus objetivos fazer projeções sobre a necessidade da formação de novos médicos. Um desses estudos gerou um conjunto de dados que aborda a evolução do número de médicos e da população brasileira por várias décadas. O quadro apresenta parte desses dados.\n$\\begin{tabular}{|c|c|c|}\n\\hline\n\\textbf{Ano} & \\textbf{Médicos} & \\textbf{População brasileira (em milhar)} \\\\ \\hline\n1990 & 219\\ 000 & 147\\ 000 \\\\ \\hline\n2000 & 292\\ 000 & 170\\ 000 \\\\ \\hline\n2010 & 365\\ 000 & 191\\ 000 \\\\ \\hline\n\\end{tabular}$\nSegundo uma projeção estatística, a variação do número de médicos e o da população brasileira de 2010 para 2020 será a média entre a variação de 1990 para 2000 e a de 2000 para 2010. Com o resultado dessa projeção, determina-se o número de médicos por mil habitantes no ano de 2020.\nO número, com duas casas na parte decimal, mais próximo do número de médicos por mil habitantes no ano de 2020 seria de",
           "tex_alternatives": {
             "A": "$0,17$.",
             "B": "$0,49$.",
@@ -3813,7 +3813,7 @@
           "images": [
             "img/q_2021_169.jpg"
           ],
-          "tex_statement": "O quadro apresenta o número de terremotos de magnitude maior ou igual a 7, na escala Richter, ocorridos em nosso planeta nos anos de 2000 a 2011.\n$\\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}\n\\hline\n\\textbf{Ano} & 2000 & 2001 & 2002 & 2003 & 2004 & 2005 & 2006 & 2007 & 2008 & 2009 & 2010 & 2011 \\\\ \\hline\n\\textbf{Terremotos} & 15 & 16 & 13 & 15 & 16 & 11 & 11 & 18 & 12 & 17 & 24 & 20 \\\\ \\hline\n\\end{tabular}$\nDisponível em: https://earthquake.usgs.gov/earthquakes/browse/m7-world.php. Acesso em: 13 ago. 2012 (adaptado).\nUm pesquisador acredita que a mediana representa bem o número anual típico de terremotos em um período.\nSegundo esse pesquisador, o número anual típico de terremotos de magnitude maior ou igual a 7 é",
+          "tex_statement": "O quadro apresenta o número de terremotos de magnitude maior ou igual a 7, na escala Richter, ocorridos em nosso planeta nos anos de 2000 a 2011.\n$\\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}\n\\hline\n\\textbf{Ano} & 2000 & 2001 & 2002 & 2003 & 2004 & 2005 & 2006 & 2007 & 2008 & 2009 & 2010 & 2011 \\\\ \\hline\n\\textbf{Terremotos} & 15 & 16 & 13 & 15 & 16 & 11 & 11 & 18 & 12 & 17 & 24 & 20 \\\\ \\hline\n\\end{tabular}$\nUm pesquisador acredita que a mediana representa bem o número anual típico de terremotos em um período.\nSegundo esse pesquisador, o número anual típico de terremotos de magnitude maior ou igual a 7 é",
           "tex_alternatives": {
             "A": "11.",
             "B": "15.",
@@ -3903,7 +3903,7 @@
           "images": [
             "img/q_2021_172.jpg"
           ],
-          "tex_statement": "Em um estudo realizado pelo IBGE em quatro estados e no Distrito Federal, com mais de 5 mil pessoas com 10 anos ou mais, observou-se que a leitura ocupa, em média, apenas seis minutos do dia de cada pessoa. Na faixa de idade de 10 a 24 anos, a média diária é de três minutos. No entanto, no grupo de idades entre 24 e 60 anos, o tempo médio diário dedicado à leitura é de 5 minutos. Entre os mais velhos, com 60 anos ou mais, a média é de 12 minutos.\nA quantidade de pessoas entrevistadas de cada faixa de idade seguiu a distribuição percentual descrita no quadro.\n$\\begin{tabular}{|l|c|}\n\\hline\n\\textbf{Faixa etária} & \\textbf{Percentual de entrevistados} \\\\ \\hline\nDe 10 a 24 anos & $x$ \\\\ \\hline\nEntre 24 e 60 anos & $y$ \\\\ \\hline\nA partir de 60 anos & $x$ \\\\ \\hline\n\\end{tabular}$\nDisponível em: www.oglobo.globo.com. Acesso em: 16 ago. 2013 (adaptado).\nOs valores de $x$ e $y$ do quadro são, respectivamente, iguais a",
+          "tex_statement": "Em um estudo realizado pelo IBGE em quatro estados e no Distrito Federal, com mais de 5 mil pessoas com 10 anos ou mais, observou-se que a leitura ocupa, em média, apenas seis minutos do dia de cada pessoa. Na faixa de idade de 10 a 24 anos, a média diária é de três minutos. No entanto, no grupo de idades entre 24 e 60 anos, o tempo médio diário dedicado à leitura é de 5 minutos. Entre os mais velhos, com 60 anos ou mais, a média é de 12 minutos.\nA quantidade de pessoas entrevistadas de cada faixa de idade seguiu a distribuição percentual descrita no quadro.\n$\\begin{tabular}{|l|c|}\n\\hline\n\\textbf{Faixa etária} & \\textbf{Percentual de entrevistados} \\\\ \\hline\nDe 10 a 24 anos & $x$ \\\\ \\hline\nEntre 24 e 60 anos & $y$ \\\\ \\hline\nA partir de 60 anos & $x$ \\\\ \\hline\n\\end{tabular}$\nOs valores de $x$ e $y$ do quadro são, respectivamente, iguais a",
           "tex_alternatives": {
             "A": "10 e 80.",
             "B": "10 e 90.",
@@ -4084,7 +4084,7 @@
           "images": [
             "img/q_2022_164.jpg"
           ],
-          "tex_statement": "A esperança de vida ao nascer é o número médio de anos que um indivíduo tende a viver a partir de seu nascimento, considerando dados da população. No Brasil, esse número vem aumentando consideravelmente, como mostra o gráfico.\n[figura]\nDisponível em: http://cod.ibge.gov.br. Acesso em: 6 mar. 2014 (adaptado).\nPode-se observar que a esperança de vida ao nascer em 2012 foi exatamente a média das registradas nos anos de 2011 e 2013. Suponha que esse fato também ocorreu com a esperança de vida ao nascer em 2013, em relação às esperanças de vida de 2012 e de 2014.\nCaso a suposição feita tenha sido confirmada, a esperança de vida ao nascer no Brasil no ano de 2014 terá sido, em ano, igual a",
+          "tex_statement": "A esperança de vida ao nascer é o número médio de anos que um indivíduo tende a viver a partir de seu nascimento, considerando dados da população. No Brasil, esse número vem aumentando consideravelmente, como mostra o gráfico.\n[figura]\nPode-se observar que a esperança de vida ao nascer em 2012 foi exatamente a média das registradas nos anos de 2011 e 2013. Suponha que esse fato também ocorreu com a esperança de vida ao nascer em 2013, em relação às esperanças de vida de 2012 e de 2014.\nCaso a suposição feita tenha sido confirmada, a esperança de vida ao nascer no Brasil no ano de 2014 terá sido, em ano, igual a",
           "tex_alternatives": {
             "A": "74,23.",
             "B": "74,51.",
@@ -5145,7 +5145,7 @@
           "images": [
             "img/q_2024_172.jpg"
           ],
-          "tex_statement": "O estádio do Maracanã passou por algumas modificações estruturais para a realização da Copa do Mundo de 2014, como, por exemplo, as dimensões do campo retangular. Para se adaptar aos padrões da Fifa, as dimensões do campo foram reduzidas de $110\\ \\text{m} \\times 75\\ \\text{m}$ para $105\\ \\text{m} \\times 68\\ \\text{m}$.\nDisponível em: http://virgula.uol.com.br.\nAcesso em: 14 ago. 2013 (adaptado).\nEm quantos metros quadrados a área do campo do Maracanã foi reduzida?",
+          "tex_statement": "O estádio do Maracanã passou por algumas modificações estruturais para a realização da Copa do Mundo de 2014, como, por exemplo, as dimensões do campo retangular. Para se adaptar aos padrões da Fifa, as dimensões do campo foram reduzidas de $110\\ \\text{m} \\times 75\\ \\text{m}$ para $105\\ \\text{m} \\times 68\\ \\text{m}$.\nEm quantos metros quadrados a área do campo do Maracanã foi reduzida?",
           "tex_alternatives": {
             "A": "24",
             "B": "35",
@@ -6534,7 +6534,7 @@
           "images": [
             "img/q_2021_168.jpg"
           ],
-          "tex_statement": "A Cifra de César é um exemplo de um método de codificação de mensagens usado por Júlio César para se comunicar com seus generais.\nNo método, cada letra era trocada por uma letra que aparecia no alfabeto um número fixo de casas adiante (ou atrás) de forma cíclica. A seguir temos um exemplo em que cada letra é substituída pela que vem três posições à frente.\n[tabela]\nPara quebrar um código como esse, a análise de frequências das letras de um texto é uma ferramenta importante. Uma análise do texto do romance O guarani, de José de Alencar, que é composto por $491\\,631$ letras, gerou o seguinte gráfico de frequências:\n[figura]\nDisponível em: www.dominiopublico.gov.br. Acesso em: 7 fev. 2015.\nApós codificar esse texto com a regra do exemplo fornecido, faz-se nova análise de frequência no texto codificado.\nAs quatro letras mais frequentes, em ordem decrescente de frequência, do texto codificado são",
+          "tex_statement": "A Cifra de César é um exemplo de um método de codificação de mensagens usado por Júlio César para se comunicar com seus generais.\nNo método, cada letra era trocada por uma letra que aparecia no alfabeto um número fixo de casas adiante (ou atrás) de forma cíclica. A seguir temos um exemplo em que cada letra é substituída pela que vem três posições à frente.\n[tabela]\nPara quebrar um código como esse, a análise de frequências das letras de um texto é uma ferramenta importante. Uma análise do texto do romance O guarani, de José de Alencar, que é composto por $491\\,631$ letras, gerou o seguinte gráfico de frequências:\n[figura]\nApós codificar esse texto com a regra do exemplo fornecido, faz-se nova análise de frequência no texto codificado.\nAs quatro letras mais frequentes, em ordem decrescente de frequência, do texto codificado são",
           "tex_alternatives": {
             "A": "A, E, O e S.",
             "B": "D, E, F e G.",
