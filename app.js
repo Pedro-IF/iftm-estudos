@@ -198,14 +198,7 @@ function renderNav(panel, question) {
         });
         nav.appendChild(reveal);
     }
-    const reset = elem("button", "reset", "Zerar acertos");
-    reset.addEventListener("click", function () {
-        if (!confirm("Apagar todas as suas respostas?")) return;
-        state.answers = {};
-        saveState();
-        render();
-    });
-    nav.appendChild(reset);
+
     panel.appendChild(nav);
 }
 
@@ -217,15 +210,16 @@ function renderPanel() {
 
     const meta = elem("div", "meta");
     meta.appendChild(elem("strong", "", topic.label));
-    meta.appendChild(elem("span", "", "ENEM " + question.year + " · questão " + question.number + " · " + question.area));
+    const mid = elem("span", "mid");
     const score = topicScore(topic);
-    meta.appendChild(elem("span", "score", "acertos: " + score.right + "/" + score.done));
+    mid.appendChild(elem("span", "score", "acertos: " + score.right + "/" + score.done));
     const link = document.createElement("a");
     link.href = "../pdfs/enem_" + question.year + "_d2.pdf#page=" + question.page;
     link.textContent = "abrir a prova";
     link.target = "_blank";
-    meta.appendChild(link);
-    meta.appendChild(elem("span", "hint", "botão direito risca uma alternativa"));
+    mid.appendChild(link);
+    meta.appendChild(mid);
+    meta.appendChild(elem("span"));
     panel.appendChild(meta);
 
     if (question.tex_statement) {
@@ -362,6 +356,19 @@ function renderCalculator() {
     const keys = document.getElementById("calc-keys");
     if (!display || !keys) return;
 
+    document.getElementById("reset").addEventListener("click", function () {
+        if (!confirm("Apagar todas as suas respostas?")) return;
+        state.answers = {};
+        saveState();
+        render();
+    });
+    const intro = document.getElementById("intro");
+    if (!window.localStorage.getItem(STORE + ":intro")) intro.hidden = false;
+    document.getElementById("intro-ok").addEventListener("click", function () {
+        intro.hidden = true;
+        try { window.localStorage.setItem(STORE + ":intro", "1"); } catch (err) {}
+    });
+
     CALC_KEYS.forEach(function (key) {
         const button = elem("button", key.cls || "", key.label);
         button.type = "button";
@@ -430,11 +437,7 @@ function calcPress(key) {
 
 document.addEventListener("keydown", function (event) {
     if (event.target.tagName === "INPUT" || event.target.tagName === "TEXTAREA") return;
-    const key = event.key.toUpperCase();
-    if (LETTERS.indexOf(key) >= 0) {
-        answer(key);
-        return;
-    }
+    if (event.ctrlKey || event.metaKey || event.altKey) return;
     if (event.key === "ArrowRight" && state.index < currentTopic().questions.length - 1) {
         state.index += 1;
         saveState();
