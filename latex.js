@@ -253,7 +253,7 @@
                 if (token) {
                     var badge = document.createElement("span");
                     badge.className = "tex-figure";
-                    badge.textContent = token[1].toLowerCase() === "figura" ? "figura \u2193" : "tabela \u2193";
+                    badge.textContent = token[1].toLowerCase() === "figura" ? "(figura abaixo)" : "(tabela abaixo)";
                     fragment.appendChild(badge);
                     return;
                 }

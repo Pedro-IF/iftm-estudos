@@ -228,7 +228,7 @@ function renderFeedback(panel, question) {
 
 function renderImage(panel, question) {
     const images = question.images || [question.image];
-    if (question.tex_only) return;   // the transcription covers the whole scan
+    if (question.tex_only && !question.tex_has_figure) return;
     const figure = document.createElement("figure");
     images.forEach(function (src) {
         const img = document.createElement("img");

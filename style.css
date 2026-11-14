@@ -337,3 +337,7 @@ canvas.draw.active { pointer-events: auto; cursor: crosshair; }
     .side { position: static; height: auto; }
     .topics { max-height: none; flex: none; }
 }
+
+.tex-figure-btn { cursor: pointer; user-select: none; }
+.tex-figure-btn:hover { color: var(--ink, #222); }
+.tex-figure-holder img { max-width: 100%; display: block; margin: 8px auto 0; }
