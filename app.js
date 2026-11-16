@@ -312,7 +312,8 @@ function renderPanel() {
     });
     mid.appendChild(prevB);
     const link = document.createElement("a");
-    link.href = "../pdfs/enem_" + question.year + "_d2.pdf#page=" + question.page;
+    const pdfBase = /\/site\/(index\.html)?$/.test(location.pathname) ? "../pdfs/" : "pdfs/";
+    link.href = pdfBase + "enem_" + question.year + "_d2.pdf#page=" + question.page;
     link.textContent = "Questão " + (state.index + 1) + "/" + topic.questions.length;
     link.target = "_blank";
     mid.appendChild(link);
@@ -331,7 +332,12 @@ function renderPanel() {
 
     if (question.tex_statement) {
         const body = elem("div", "tex-body");
-        body.appendChild(renderLatex(question.tex_statement));
+        if (question.tex_title) {
+            const title = elem("div", "tex-title");
+            title.appendChild(renderLatex(question.tex_title));
+            body.appendChild(title);
+        }
+        body.appendChild(renderLatex(question.tex_statement, { paragraphs: true }));
         panel.appendChild(body);
     }
     renderImage(panel, question);  // the precise crop of the question from the exam

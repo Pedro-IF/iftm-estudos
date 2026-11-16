@@ -312,7 +312,18 @@ canvas.draw.active { pointer-events: auto; cursor: crosshair; }
 .tex-figure { display: inline-block; padding: 0 6px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font-size: 12px; }
 .tex-matrix { white-space: nowrap; }
 .tex-tabular { display: table; margin: 10px auto; border-collapse: collapse; }
+.tex-xarrow { display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; margin: 0 4px; }
+.tex-xarrow-label { font-size: 0.72em; line-height: 1.1; white-space: nowrap; }
+.tex-xarrow-arrow { font-size: 1.15em; line-height: 1; }
 .tex-tabular td { border: 1px solid var(--line); padding: 3px 10px; }
+.tex-line { display: block; margin: 0 0 7px; }
+.tex-line.short { margin: 0 0 2px; }
+.tex-line:last-child { margin-bottom: 0; }
+.tex-title { text-align: center; font-weight: 600; margin: 2px 0 10px; }
+.tex-source {
+    display: block; text-align: right; font-size: 0.92em;
+    color: var(--muted); margin: 2px 6px 8px 0;
+}
 .tex-list { margin: 4px 0 4px 4px; padding-left: 22px; }
 .tex-list li { margin: 3px 0; }
 .tex-steps { margin-top: 2px; }

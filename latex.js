@@ -160,6 +160,33 @@
                 readArgument();
                 return readArgument();
             }
+            if (name === "multirow") {
+                readArgument();
+                readArgument();
+                return readArgument();
+            }
+            if (name === "xrightarrow" || name === "xleftarrow" || name === "xrightleftharpoons") {
+                var arrow = { xrightarrow: "\u27f6", xleftarrow: "\u27f5",
+                              xrightleftharpoons: "\u21cc" }[name];
+                var above = readArgument();
+                if (tokens[i] && tokens[i].type === "char" && tokens[i].value === "[") {
+                    i += 1;
+                    var below = "";
+                    while (i < tokens.length && !(tokens[i].type === "char" && tokens[i].value === "]")) {
+                        if (tokens[i].type === "char") below += escapeHTML(tokens[i].value);
+                        i += 1;
+                    }
+                    i += 1;
+                    return '<span class="tex-xarrow"><span class="tex-xarrow-label">' + above +
+                        '</span><span class="tex-xarrow-arrow">' + arrow +
+                        '</span><span class="tex-xarrow-label">' + below + "</span></span>";
+                }
+                return '<span class="tex-xarrow"><span class="tex-xarrow-label">' + above +
+                    '</span><span class="tex-xarrow-arrow">' + arrow + "</span></span>";
+            }
+            if (name === "textdegree") {
+                return "\u00b0";
+            }
             if (name === "textbf") {
                 return "<b>" + escapeHTML(readRawGroup()) + "</b>";
             }
@@ -167,7 +194,7 @@
                 return ":";
             }
             if (name === "text" || name === "mathrm" || name === "textrm" || name === "textnormal") {
-                return '<span class="tex-text">' + escapeHTML(readRawGroup()) + "</span>";
+                return '<span class="tex-text">' + readArgument() + "</span>";
             }
             if (name === "mathbb") {
                 var letter = readRawGroup().trim();
@@ -233,6 +260,7 @@
                 }
                 i += 1;
                 if (token.type === "char") {
+                    if (token.value === "$") continue;   // math delimiter inside a cell
                     parts.push(escapeHTML(token.value === "-" ? "\u2212" : token.value));
                 }
             }
@@ -302,7 +330,8 @@
                 continue;
             }
             var display = inMath ? pendingDisplay
-                : (/\n\s*$/.test(current) && current.trim() !== "");
+                : (/\n[ \t]*$/.test(current) &&
+                   (current.trim() !== "" || parts.length > 0));
             pendingDisplay = false;
             parts.push({ math: inMath, text: current, display: display });
             if (!inMath) pendingDisplay = display;
@@ -313,25 +342,81 @@
         return parts;
     }
 
+    function readBraced(text, start) {
+        // content of the {...} group starting at text[start], plus the index after it
+        if (text.charAt(start) !== "{") return null;
+        var depth = 0;
+        for (var i = start; i < text.length; i += 1) {
+            if (text.charAt(i) === "{") depth += 1;
+            else if (text.charAt(i) === "}") {
+                depth -= 1;
+                if (!depth) return { content: text.slice(start + 1, i), end: i + 1 };
+            }
+        }
+        return null;
+    }
+
+    function cellLayout(cell) {
+        // \multicolumn{n}{spec}{text} and \multirow{n}{width}{text} at cell start
+        var colspan = 1, rowspan = 1, rest = cell.trim();
+        for (var guard = 0; guard < 4; guard += 1) {
+            var match = /^\\(multicolumn|multirow)\b/.exec(rest);
+            if (!match) break;
+            var first = readBraced(rest, match[0].length);
+            if (!first) break;
+            var second = readBraced(rest, first.end);
+            if (!second) break;
+            var third = readBraced(rest, second.end);
+            if (!third) break;
+            var count = parseInt(first.content, 10);
+            if (match[1] === "multicolumn") {
+                if (count > 1) colspan = count;
+            } else if (count > 1) {
+                rowspan = count;
+            }
+            rest = third.content + rest.slice(third.end);
+        }
+        return { colspan: colspan, rowspan: rowspan, text: rest };
+    }
+
     function buildTabular(body, spec) {
         var table = document.createElement("table");
         table.className = "tex-tabular";
         var aligns = [];
         (spec || "").replace(/[lcr]/g, function (ch) { aligns.push(ch); });
-        var rows = body.split(/\\\\/);
+        var rows = body.replace(/\\cline\{[^}]*\}/g, "").split(/\\\\/);
+        var spanned = [];
         rows.forEach(function (row) {
             if (!row.trim()) return;
             var tr = document.createElement("tr");
-            row.split("&").forEach(function (cell, i) {
+            var cells = row.split("&");
+            var lead = 0;
+            while (spanned[lead] > 0) lead += 1;
+            // rows of a row-spanning cell repeat a placeholder empty cell first
+            while (lead > 0 && cells.length > lead && cells[0].trim() === "") {
+                cells.shift();
+                break;
+            }
+            var col = lead;
+            cells.forEach(function (cell, i) {
                 var trimmed = cell.trim();
                 if (/^\$[^$]*\$$/.test(trimmed)) cell = trimmed.slice(1, -1);
+                var layout = cellLayout(cell);
                 var td = document.createElement("td");
-                if (aligns[i] === "c") td.style.textAlign = "center";
-                else if (aligns[i] === "r") td.style.textAlign = "right";
-                td.innerHTML = mathToHTML(cell);
+                if (layout.colspan > 1) td.colSpan = layout.colspan;
+                if (layout.rowspan > 1) {
+                    td.rowSpan = layout.rowspan;
+                    td.style.verticalAlign = "middle";
+                    for (var k = 0; k < layout.colspan; k += 1) spanned[col + k] = layout.rowspan;
+                }
+                if (aligns[col] === "c") td.style.textAlign = "center";
+                else if (aligns[col] === "r") td.style.textAlign = "right";
+                td.innerHTML = mathToHTML(layout.text);
                 tr.appendChild(td);
+                col += layout.colspan;
             });
             table.appendChild(tr);
+            spanned = spanned.map(function (n) { return n > 0 ? n - 1 : 0; });
         });
         return table;
     }
@@ -349,9 +434,43 @@
         fragment.appendChild(list);
     }
 
-    function renderLatex(text) {
+    function appendText(container, text) {
+        var pieces = String(text).split(/(\[figura\]|\[tabela\])/i);
+        pieces.forEach(function (piece) {
+            if (!piece) return;
+            var token = /^\[(figura|tabela)\]$/i.exec(piece);
+            if (token) {
+                var badge = document.createElement("span");
+                badge.className = "tex-figure";
+                badge.textContent = token[1].toLowerCase() === "figura" ? "(figura abaixo)" : "(tabela abaixo)";
+                container.appendChild(badge);
+                return;
+            }
+            container.appendChild(document.createTextNode(piece));
+        });
+    }
+
+    function renderLatex(text, options) {
         var fragment = document.createDocumentFragment();
         if (!text) return fragment;
+        var paragraphs = !!(options && options.paragraphs);
+        var lines = [];
+        var line = null;
+
+        function newLine() {
+            line = document.createElement("div");
+            line.className = "tex-line";
+            line._len = 0;
+            lines.push(line);
+            fragment.appendChild(line);
+        }
+
+        function push(node, length) {
+            if (!line) newLine();
+            line.appendChild(node);
+            line._len += length || 0;
+        }
+
         var listMatch = /\\begin\{(itemize|enumerate)\}/.exec(String(text));
         if (listMatch) {
             var env = listMatch[1];
@@ -360,9 +479,9 @@
                 var before = String(text).slice(0, listMatch.index);
                 var body = String(text).slice(listMatch.index + ("\\begin{" + env + "}").length, end);
                 var after = String(text).slice(end + ("\\end{" + env + "}").length);
-                if (before.trim()) fragment.appendChild(renderLatex(before.replace(/\n+$/, "")));
+                if (before.trim()) fragment.appendChild(renderLatex(before.replace(/\n+$/, ""), options));
                 renderList(env, body, fragment);
-                if (after.trim()) fragment.appendChild(renderLatex(after.replace(/^\n+/, "")));
+                if (after.trim()) fragment.appendChild(renderLatex(after.replace(/^\n+/, ""), options));
                 return fragment;
             }
         }
@@ -392,6 +511,7 @@
                                         .replace(/\\end\{(?:tabular|array)\}\s*$/, "")
                                         .replace(/\\hline/g, "");
                     fragment.appendChild(buildTabular(body, RegExp.$1));
+                    line = null;
                 } else if (matrix) {
                     var wrap = { pmatrix: ["(", ")"], bmatrix: ["[", "]"], matrix: ["", ""] }[matrix[1]];
                     var mbody = part.text.replace(/^\s*\\begin\{(?:pmatrix|bmatrix|matrix)\}/, "")
@@ -402,6 +522,7 @@
                     holder.appendChild(buildTabular(mbody, ""));
                     if (wrap[1]) holder.appendChild(document.createTextNode(wrap[1]));
                     fragment.appendChild(holder);
+                    line = null;
                 } else {
                     var span = document.createElement("span");
                     span.className = "tex";
@@ -412,21 +533,47 @@
                         block.appendChild(span);
                         if (tail) block.appendChild(document.createTextNode(tail));
                         fragment.appendChild(block);
+                        line = null;
+                    } else if (paragraphs) {
+                        push(span, part.text.length);
                     } else {
                         fragment.appendChild(span);
                     }
                 }
             } else if (part.text) {
-                appendPlain(fragment, part.text);
+                if (!paragraphs) {
+                    appendPlain(fragment, part.text);
+                    return;
+                }
+                var segments = String(part.text).split("\n");
+                segments.forEach(function (segment, index) {
+                    if (!segment) return;
+                    var citation = /^\s*\\fonte\{([\s\S]*)\}\s*$/.exec(segment);
+                    if (index > 0 && !citation) newLine();
+                    if (citation) {
+                        var source = document.createElement("div");
+                        source.className = "tex-source";
+                        source.appendChild(renderLatex(citation[1]));
+                        fragment.appendChild(source);
+                        line = null;
+                        return;
+                    }
+                    if (!line) newLine();
+                    appendText(line, segment);
+                    line._len += segment.length;
+                });
             }
+        });
+        lines.forEach(function (item) {
+            if (item._len <= 45) item.className = "tex-line short";
         });
         return fragment;
     }
 
     window.renderLatex = renderLatex;
-    window.renderLatexHTML = function (text) {
+    window.renderLatexHTML = function (text, options) {
         var box = document.createElement("div");
-        box.appendChild(renderLatex(text));
+        box.appendChild(renderLatex(text, options));
         return box.innerHTML;
     };
 })();

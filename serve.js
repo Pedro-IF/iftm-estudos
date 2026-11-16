@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Tiny static server for the study website.
-// Usage: node serve.js [port]   ->  http://127.0.0.1:8000/site/
+// Usage: node serve.js [port]   ->  http://127.0.0.1:8000/
 "use strict";
 
 const http = require("node:http");
@@ -9,7 +9,7 @@ const path = require("node:path");
 
 const ROOT = __dirname;
 const PORT = Number(process.argv[2] || process.env.PORT || 8000);
-const HOME = "/site/";
+const HOME = "/";
 const TYPES = {
     ".html": "text/html; charset=utf-8",
     ".css": "text/css; charset=utf-8",
@@ -39,11 +39,6 @@ function resolve(pathname) {
 
 function serve(req, res) {
     const pathname = new URL(req.url, "http://localhost").pathname;
-    if (pathname === "/") {
-        res.writeHead(302, { Location: HOME });
-        res.end();
-        return;
-    }
     let file = resolve(pathname);
     if (!file) {
         send(res, 403, "Forbidden");
