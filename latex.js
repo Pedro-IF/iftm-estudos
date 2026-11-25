@@ -287,10 +287,13 @@
                 if (!piece) return;
                 var token = /^\[(figura|tabela)\]$/i.exec(piece);
                 if (token) {
-                    var badge = document.createElement("span");
-                    badge.className = "tex-figure";
-                    badge.textContent = token[1].toLowerCase() === "figura" ? "(figura abaixo)" : "(tabela abaixo)";
-                    fragment.appendChild(badge);
+                    if (token[1].toLowerCase() === "figura") {
+                        if (figureQueue.length) {
+                            fragment.appendChild(figureNode(figureQueue.shift()));
+                        }
+                    } else {
+                        fragment.appendChild(tabBadge());
+                    }
                     return;
                 }
                 fragment.appendChild(document.createTextNode(piece));
@@ -442,16 +445,45 @@
         fragment.appendChild(list);
     }
 
+    function tabBadge() {
+        var badge = document.createElement("span");
+        badge.className = "tex-figure";
+        badge.textContent = "(tabela abaixo)";
+        return badge;
+    }
+
+    var figureQueue = [];        // figure paths still to be placed, in order
+
+    function figureNode(src, caption) {
+        var wrapper = document.createElement("span");
+        wrapper.className = "tex-figure-img";
+        if (src) {
+            var img = document.createElement("img");
+            img.src = src;
+            img.alt = caption || "Figura da questão";
+            img.loading = "lazy";
+            wrapper.appendChild(img);
+        } else {
+            wrapper.className = "tex-figure";
+            wrapper.textContent = "(figura abaixo)";
+        }
+        return wrapper;
+    }
+
     function appendText(container, text) {
         var pieces = String(text).split(/(\[figura\]|\[tabela\])/i);
         pieces.forEach(function (piece) {
             if (!piece) return;
             var token = /^\[(figura|tabela)\]$/i.exec(piece);
             if (token) {
-                var badge = document.createElement("span");
-                badge.className = "tex-figure";
-                badge.textContent = token[1].toLowerCase() === "figura" ? "(figura abaixo)" : "(tabela abaixo)";
-                container.appendChild(badge);
+                if (token[1].toLowerCase() === "figura") {
+                    // no figure left for this marker: place nothing rather than
+                    // an empty badge (one crop can hold two printed graphs)
+                    if (!figureQueue.length) return;
+                    container.appendChild(figureNode(figureQueue.shift()));
+                } else {
+                    container.appendChild(tabBadge());
+                }
                 return;
             }
             container.appendChild(document.createTextNode(piece));
@@ -462,6 +494,10 @@
         var fragment = document.createDocumentFragment();
         if (!text) return fragment;
         var paragraphs = !!(options && options.paragraphs);
+        if (options && options.figures && !options._figureQueueReady) {
+            figureQueue = options.figures.slice();   // recursive calls reuse the queue
+            options._figureQueueReady = true;
+        }
         var lines = [];
         var line = null;
 
@@ -572,6 +608,16 @@
                 });
             }
         });
+        if (options && options.figureTail) {
+            // the statement carries fewer [figura] markers than the question has
+            // figures (several drawings of one figure): keep the rest visible
+            while (figureQueue.length) {
+                var holder = document.createElement("div");
+                holder.className = "tex-line tex-figure-tail";
+                holder.appendChild(figureNode(figureQueue.shift()));
+                fragment.appendChild(holder);
+            }
+        }
         lines.forEach(function (item) {
             if (item._len <= 45) item.className = "tex-line short";
         });

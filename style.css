@@ -310,6 +310,10 @@ canvas.draw.active { pointer-events: auto; cursor: crosshair; }
 .tex-sp { display: inline-block; }
 .tex-unknown { color: var(--bad); font-size: .9em; }
 .tex-figure { display: inline-block; padding: 0 6px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font-size: 12px; }
+
+/* figure carried as an image inside the transcribed statement */
+.tex-figure-img { display: block; margin: 12px auto; text-align: center; }
+.tex-figure-img img { max-width: 100%; height: auto; border-radius: 6px; }
 .tex-matrix { white-space: nowrap; }
 .tex-tabular { display: table; margin: 10px auto; border-collapse: collapse; }
 .tex-xarrow { display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; margin: 0 4px; }
@@ -352,3 +356,9 @@ canvas.draw.active { pointer-events: auto; cursor: crosshair; }
 .tex-figure-btn { cursor: pointer; user-select: none; }
 .tex-figure-btn:hover { color: var(--ink, #222); }
 .tex-figure-holder img { max-width: 100%; display: block; margin: 8px auto 0; }
+
+.alt-figure { display: block; margin: 6px auto 0; max-width: 100%; height: auto; border-radius: 6px; }
+.alt-figures { display: flex; flex-direction: column; gap: 10px; margin: 10px 0; }
+
+.tex-figure-tail { display: flex; flex-direction: column; gap: 12px; margin: 12px 0; }
+.tex-figure-tail img { display: block; margin: 0 auto; max-width: 100%; height: auto; border-radius: 6px; }

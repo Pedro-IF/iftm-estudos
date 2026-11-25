@@ -94,6 +94,8 @@ function renderTopics() {
 function renderAlternatives(panel, question) {
     const chosen = state.answers[question.id];
     const crossed = state.crossed[question.id] || {};
+    const lettered = question.image_alternatives || [];
+    const mapped = altFigures.length === lettered.length ? altFigures : [];
     const list = elem("ul", "alts");
     LETTERS.forEach(function (letter) {
         const button = elem("button");
@@ -104,6 +106,14 @@ function renderAlternatives(panel, question) {
             const label = elem("span", "tex-label");
             label.appendChild(renderLatex(tex));
             button.appendChild(label);
+        } else if (mapped.length) {
+            button.appendChild(elem("span", "tex-label", letter + ")"));
+            const shot = document.createElement("img");
+            shot.className = "alt-figure";
+            shot.src = mapped[lettered.indexOf(letter)];
+            shot.alt = "Alternativa " + letter;
+            shot.loading = "lazy";
+            button.appendChild(shot);
         } else {
             button.appendChild(elem("span", text ? "" : "empty", text || "(alternativa na imagem)"));
         }
@@ -125,6 +135,18 @@ function renderAlternatives(panel, question) {
         list.appendChild(button);
     });
     panel.appendChild(list);
+    if (altFigures.length) {
+        // letters unknown: still show the crops rather than dropping content
+        const rest = elem("div", "alt-figures");
+        altFigures.forEach(function (src) {
+            const shot = document.createElement("img");
+            shot.className = "alt-figure";
+            shot.src = src;
+            shot.loading = "lazy";
+            rest.appendChild(shot);
+        });
+        panel.appendChild(rest);
+    }
 }
 
 
@@ -226,9 +248,14 @@ function renderFeedback(panel, question) {
     panel.appendChild(box);
 }
 
+let altFigures = [];   // figures that belong to the graph alternatives
+
 function renderImage(panel, question) {
     const images = question.images || [question.image];
-    if (question.tex_only && !question.tex_has_figure) return;
+    // the crop of the whole question is only a fallback: when the transcription
+    // is complete the page renders text plus the figures placed inline
+    if (question.tex_only) return;
+    if (question.tex_complete && (question.figures || []).length) return;
     const figure = document.createElement("figure");
     images.forEach(function (src) {
         const img = document.createElement("img");
@@ -337,7 +364,34 @@ function renderPanel() {
             title.appendChild(renderLatex(question.tex_title));
             body.appendChild(title);
         }
-        body.appendChild(renderLatex(question.tex_statement, { paragraphs: true }));
+        // every [figura] marker takes one figure in reading order; whatever is
+        // left over belongs to the graph alternatives, shown with their letters
+        // the page photo already carries every figure: inlining them as well
+        // would show the artwork twice
+        const figures = question.tex_complete ? (question.figures || []) : [];
+        const markers = (question.tex_statement.match(/\[figura\]/gi) || []).length;
+        const inline = figures.slice(0, Math.min(markers, figures.length));
+        const leftover = figures.slice(inline.length);
+        const letteredCount = (question.image_alternatives || []).length;
+        // artwork the markers did not consume either belongs to the graph
+        // alternatives or, failing a letter mapping, follows the statement
+        altFigures = letteredCount ? leftover : [];
+        body.appendChild(renderLatex(question.tex_statement, {
+            paragraphs: true,
+            figures: inline,
+            figureTail: false
+        }));
+        if (leftover.length && !altFigures.length) {
+            const extra = elem("div", "tex-figure-tail");
+            leftover.forEach(function (src) {
+                const shot = document.createElement("img");
+                shot.src = src;
+                shot.loading = "lazy";
+                shot.alt = "Figura da questão";
+                extra.appendChild(shot);
+            });
+            body.appendChild(extra);
+        }
         panel.appendChild(body);
     }
     renderImage(panel, question);  // the precise crop of the question from the exam
