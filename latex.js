@@ -261,7 +261,15 @@
                 i += 1;
                 if (token.type === "char") {
                     if (token.value === "$") continue;   // math delimiter inside a cell
-                    parts.push(escapeHTML(token.value === "-" ? "\u2212" : token.value));
+                    var value = token.value;
+                    if (value === "-") {
+                        // a hyphen between letters ("batata-doce") is not a minus sign
+                        var before = source.charAt(token.pos - 1);
+                        var after = source.charAt(token.pos + 1);
+                        value = (/[A-Za-zÀ-ÿ]/.test(before) && /[A-Za-zÀ-ÿ]/.test(after))
+                            ? "-" : "\u2212";
+                    }
+                    parts.push(escapeHTML(value));
                 }
             }
             return parts.join("");

@@ -647,7 +647,7 @@
           "images": [
             "img/q_2021_160.jpg"
           ],
-          "tex_statement": "Um atleta produz sua própria refeição com custo fixo de $R\\$\\ 10,00$. Ela é composta por $400$ g de frango, $600$ g de batata-doce e uma hortaliça. Atualmente, os preços dos produtos para essa refeição são:\n$\\begin{array}{|c|c|c|c|}\\hline \\text{Refeição} & \\text{Frango (kg)} & \\text{Batata-doce (kg)} & \\text{Hortaliças (unidade)} \\\\ \\hline & R\\$\\ 12,50 & R\\$\\ 5,00 & R\\$\\ 2,00 \\\\ \\hline \\end{array}$\nEm relação a esses preços, haverá um aumento de $50\\%$ no preço do quilograma de batata-doce, e os outros preços não serão alterados. O atleta deseja manter o custo da refeição, a quantidade de batata-doce e a hortaliça. Portanto, terá que reduzir a quantidade de frango.\nQual deve ser a redução percentual da quantidade de frango para que o atleta alcance seu objetivo?",
+          "tex_statement": "Um atleta produz sua própria refeição com custo fixo de $R\\$\\ 10,00$. Ela é composta por $400$ g de frango, $600$ g de batata-doce e uma hortaliça. Atualmente, os preços dos produtos para essa refeição são:\n$\\begin{array}{|c|c|c|c|}\\hline \\multirow{2}{*}{\\text{Refeição}} & \\text{Frango (kg)} & \\text{Batata-doce (kg)} & \\text{Hortaliças (unidade)} \\\\ \\hline & R\\$\\ 12{,}50 & R\\$\\ 5{,}00 & R\\$\\ 2{,}00 \\\\ \\hline \\end{array}$\nEm relação a esses preços, haverá um aumento de $50\\%$ no preço do quilograma de batata-doce, e os outros preços não serão alterados. O atleta deseja manter o custo da refeição, a quantidade de batata-doce e a hortaliça. Portanto, terá que reduzir a quantidade de frango.\nQual deve ser a redução percentual da quantidade de frango para que o atleta alcance seu objetivo?",
           "tex_title": null,
           "tex_alternatives": {
             "A": "$12,5$",
@@ -1641,7 +1641,7 @@
           "images": [
             "img/q_2024_166.jpg"
           ],
-          "tex_statement": "Um artesão utiliza dois tipos de componentes, X e Y, nos enfeites que produz. Ele sempre compra todos os componentes em uma mesma loja. O quadro apresenta os preços dos dois tipos de componentes nas lojas I e II.\n$\\begin{tabular}{|c|c|c|}\n\\hline\n\\multicolumn{1}{|c|}{\\text{Lojas}} & \\multicolumn{2}{c|}{\\text{Preços dos componentes (R\\$)}} \\\\\n\\hline\n & X & Y \\\\\n\\hline\nI & $3,00$ & $1,00$ \\\\\n\\hline\nII & $2,00$ & $4,00$ \\\\\n\\hline\n\\end{tabular}$\nEle confeccionará enfeites formados por duas unidades do componente X e uma unidade do componente Y e efetuará a compra na loja que oferecer o menor valor total para a confecção de um enfeite.\nO artesão efetuará a compra na loja",
+          "tex_statement": "Um artesão utiliza dois tipos de componentes, X e Y, nos enfeites que produz. Ele sempre compra todos os componentes em uma mesma loja. O quadro apresenta os preços dos dois tipos de componentes nas lojas I e II.\n$\\begin{tabular}{|c|c|c|}\n\\hline\n\\multirow{2}{*}{\\text{Lojas}} & \\multicolumn{2}{c|}{\\text{Preços dos componentes (R\\$)}} \\\\\n\\hline\n & X & Y \\\\\n\\hline\nI & $3,00$ & $1,00$ \\\\\n\\hline\nII & $2,00$ & $4,00$ \\\\\n\\hline\n\\end{tabular}$\nEle confeccionará enfeites formados por duas unidades do componente X e uma unidade do componente Y e efetuará a compra na loja que oferecer o menor valor total para a confecção de um enfeite.\nO artesão efetuará a compra na loja",
           "tex_title": null,
           "tex_alternatives": {
             "A": "I, pois o valor é $7,00$ reais.",
@@ -5445,8 +5445,7 @@
           "page": 24,
           "images": [
             "img/q_2024_155_1.jpg",
-            "img/q_2024_155_2.jpg",
-            "img/q_2024_155_3.jpg"
+            "img/q_2024_155_2.jpg"
           ],
           "tex_statement": "Um proprietário pretende instalar um sensor de presença para a proteção de seu imóvel. O sensor deverá detectar movimentos de objetos e pessoas numa determinada região plana. A figura ilustra a vista superior da área de cobertura (setor circular em azul) de um sensor colocado no ponto $S$. Essa área depende da medida do ângulo $\\alpha$, em grau, e do raio $R$, em metro.\n[figura]\nAo aumentar o ângulo $\\alpha$ ou o raio $R$ aumenta-se a área de cobertura do sensor. Entretanto, quanto maior essa área, maior o preço do sensor.\nPara esse fim, há cinco tipos de sensores disponíveis no mercado, cada um com as seguintes características:\n• tipo I: $\\alpha = 15^{\\circ}$ e $R = 20\\ \\text{m}$;\n• tipo II: $\\alpha = 30^{\\circ}$ e $R = 22\\ \\text{m}$;\n• tipo III: $\\alpha = 40^{\\circ}$ e $R = 12\\ \\text{m}$;\n• tipo IV: $\\alpha = 60^{\\circ}$ e $R = 16\\ \\text{m}$;\n• tipo V: $\\alpha = 90^{\\circ}$ e $R = 10\\ \\text{m}$.\nEsse proprietário pretende adquirir um desses sensores que seja capaz de cobrir, no mínimo, uma área de medida $70\\ \\text{m}^2$, com o menor preço possível.\nUse $3$ como valor aproximado para $\\pi$.\nO proprietário do imóvel deverá adquirir o sensor do tipo",
           "tex_title": null,
@@ -7922,8 +7921,7 @@
           "page": 12,
           "images": [
             "img/q_2024_122_1.jpg",
-            "img/q_2024_122_2.jpg",
-            "img/q_2024_122_3.jpg"
+            "img/q_2024_122_2.jpg"
           ],
           "tex_statement": "O esquema representa a ação de organismos no ciclo do nitrogênio e no ciclo do carbono. Os números correspondem a algumas etapas dos dois ciclos distintos.\n\\fonte{Disponível em: https://pt.khanacademy.org. Acesso em: 27 jun. 2024 (adaptado).}\n[figura]\nEm qual etapa numerada ocorre uma transformação redox como a que ocorre nos procariantes nitrificantes?",
           "tex_title": "Metabolismo de procariontes",
@@ -9990,8 +9988,7 @@
           "page": 7,
           "images": [
             "img/q_2022_108_1.jpg",
-            "img/q_2022_108_2.jpg",
-            "img/q_2022_108_3.jpg"
+            "img/q_2022_108_2.jpg"
           ],
           "tex_statement": "Tribologia é o estudo da interação entre duas superfícies em contato, como desgaste e atrito, sendo de extrema importância na avaliação de diferentes produtos e de bens de consumo em geral. Para testar a conformidade de uma muleta, realiza-se um ensaio tribológico, pressionando-a verticalmente contra o piso com uma força $\u000bec{F}$, conforme ilustra a imagem, em que CM representa o centro de massa da muleta.\n[figura]\nMantendo-se a força $\u000bec{F}$ paralela à muleta, varia-se lentamente o ângulo entre a muleta e a vertical, até o máximo ângulo imediatamente anterior ao de escorregamento, denominado ângulo crítico. Esse ângulo também pode ser calculado a partir da identificação dos pontos de aplicação, da direção e do sentido das forças peso ($\u000bec{P}$), normal ($\u000bec{N}$) e de atrito estático ($\u000bec{f}_e$).\nO esquema que representa corretamente todas as forças que atuam sobre a muleta quando ela atinge o ângulo crítico é:",
           "tex_title": null,
@@ -11485,9 +11482,7 @@
           "page": 6,
           "images": [
             "img/q_2021_105_1.jpg",
-            "img/q_2021_105_2.jpg",
-            "img/q_2021_105_3.jpg",
-            "img/q_2021_105_4.jpg"
+            "img/q_2021_105_2.jpg"
           ],
           "tex_statement": "Um garoto precisa montar um circuito que acenda três lâmpadas de cores diferentes, uma de cada vez. Ele dispõe das lâmpadas, de fios, uma bateria e dois interruptores, como ilustrado, junto com seu símbolo de três pontos. Quando esse interruptor fecha AB, abre BC e vice-versa.\n[figura]\nO garoto fez cinco circuitos elétricos usando os dois interruptores, mas apenas um satisfaz a sua necessidade. Esse circuito é representado por",
           "tex_title": null,
